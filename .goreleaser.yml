@@ -4,7 +4,7 @@ builds:
     env:
       - CGO_ENABLED=0
     ldflags:
-      - -s -w -X "github.com/markbates/refresh.Version={{.Tag}}"
+      - -s -w -X "github.com/gobuffalo/refresh.Version={{.Tag}}"
     goos:
       - darwin
       - linux

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/markbates/refresh/refresh"
+	"github.com/gobuffalo/refresh/refresh"
 	"github.com/spf13/cobra"
 )
 
