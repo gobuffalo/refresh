@@ -54,8 +54,6 @@ func (r *Manager) Start() error {
 					if event.Op != fsnotify.Chmod {
 						go r.build(event)
 					}
-					w.Remove(event.Name)
-					w.Add(event.Name)
 				case <-r.context.Done():
 					break LoopRebuilder
 				}
