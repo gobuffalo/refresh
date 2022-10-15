@@ -1,10 +1,9 @@
 builds:
-  -
-    main: ./main.go
+  - main: ./main.go
     env:
       - CGO_ENABLED=0
     ldflags:
-      - -s -w -X "github.com/gobuffalo/refresh.Version={{.Tag}}"
+      - -s -w -X "github.com/gobuffalo/refresh/cmd.Version={{.Tag}}"
     goos:
       - darwin
       - linux
@@ -18,8 +17,7 @@ builds:
       - 6
       - 7
 archives:
-  -
-    replacements:
+  - replacements:
       '386': i386
       darwin: Darwin
       linux: Linux
@@ -36,10 +34,9 @@ changelog:
       - '^docs:'
       - '^test:'
 brews:
-  -
-    name: 'refresh'
-    github:
-      owner: 'markbates'
+  - name: 'refresh'
+    tap:
+      owner: 'gobuffalo'
       name: 'homebrew-tap'
     install: |
       bin.install "refresh"
