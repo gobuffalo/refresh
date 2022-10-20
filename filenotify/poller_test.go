@@ -64,14 +64,15 @@ func TestPollerEvent(t *testing.T) {
 	default:
 	}
 
-	if err := ioutil.WriteFile(f.Name(), []byte("hello"), 0644); err != nil {
+	if err := ioutil.WriteFile(f.Name(), []byte("hello"), 0600); err != nil {
+		// consider umask
 		t.Fatal(err)
 	}
 	if err := assertEvent(w, fsnotify.Write); err != nil {
 		t.Fatal(err)
 	}
 
-	if err := os.Chmod(f.Name(), 600); err != nil {
+	if err := os.Chmod(f.Name(), 0644); err != nil {
 		t.Fatal(err)
 	}
 	if err := assertEvent(w, fsnotify.Chmod); err != nil {
